@@ -54,19 +54,15 @@ def lockRev(goal, droprate, lockkey=99.6):
           "\nTotal Lockbox Purchase Revenue: " + str(locale.currency(rev, grouping=True)) +
           "\n# Items Acquired: " + str(win) +
           "\n# Losses: " + str(loss) +
-          "\nStandard Dev: " + str(np.std(all_rolls)))
+          "\n\nMean: " + str(np.mean(all_rolls)) +
+          "\nStandard Dev: " + str(np.std(all_rolls)) +
+          "\nCoefficient of Variation: " + str((np.mean(all_rolls))/(np.std(all_rolls))))
+          
 
 revCalc(salesgoal)
 print("\n")
-print("Validation Direct Total Sold: " + str(direct_total)) 
 lockRev(salesgoal,lb_droprate)
 print("\n")
-
-
-
-
-
-
 
     # House advantage is probability of win added to probability of losing and multiplied by total customer spend
     # so Roulette - (18/38 X 1) + (20/30 X -1) = -5.26%, if betting a dollar the house edge is -5.26 * bet * # of rounds = $0.53
@@ -78,7 +74,5 @@ print("\n")
     # houseedge = (winProb - lossProb) * -1
     # profit = houseedge * monies
     # print(locale.currency(profit)) """
-# To-Do: Account for standard Deviation 
-    #def stddev(): 
-        # Take the avlues and find the mean, then substract the mean from the individual values, then square the result. Divide by sample size - 1
+
 
